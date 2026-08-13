@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 MySQL Shell 9.7.0
 
 Copyright (c) 2016, 2026, Oracle and/or its affiliates.
@@ -120,3 +121,127 @@ Query OK, 0 rows affected (0.0151 sec)
 
 Records: 0  Duplicates: 0  Warnings: 0
  MySQL  localhost:3306 ssl  assignment  SQL >
+=======
+MySQL Shell 9.7.0
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL >
+ MySQL  SQL >
+ MySQL  SQL >
+ MySQL  SQL > \connect root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 9
+Server version: 9.7.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create database assignment;
+Query OK, 1 row affected (0.0036 sec)
+ MySQL  localhost:3306 ssl  SQL > use assignment;
+Default schema set to `assignment`.
+Fetching global names, object names from `assignment` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  assignment  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| assignment         |
+| classicmodels      |
+| databasе           |
+| empdb              |
+| friday             |
+| homework           |
+| information_schema |
+| lastdream          |
+| monday             |
+| mysql              |
+| performance_schema |
+| saturday           |
+| student            |
+| subquery1626       |
+| sys                |
+| thursday           |
++--------------------+
+16 rows in set (0.0030 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > create table emplopyees()
+                                           -> id
+                                           -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+id' at line 1
+ MySQL  localhost:3306 ssl  assignment  SQL > create table emplopyees(id int primary key auto_increment comment 'unique employee id', name varchar(50) not null, department varchar(50) not null, salary decimal(10,2) not null, join_date date not null) comment="stores employee details";
+Query OK, 0 rows affected (0.0083 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > show tables;
++----------------------+
+| Tables_in_assignment |
++----------------------+
+| emplopyees           |
++----------------------+
+1 row in set (0.0016 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees ("John Doe", "HR", 50000, '2024-01-15');
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"John Doe", "HR",50000, '2024-01-15')' at line 1
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees values ("John Doe", "HR", 50000, '2024-01-15');
+ERROR: 1146 (42S02): Table 'assignment.employees' doesn't exist
+ MySQL  localhost:3306 ssl  assignment  SQL > create table employees(id int primary key auto_increment comment 'unique employee id', name varchar(50) not null, department varchar(50) not null, salary decimal(10,2) not null, join_date date not null) comment="stores employee details";
+Query OK, 0 rows affected (0.0110 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees values ("John Doe", "HR", 50000, '2024-01-15');
+ERROR: 1136 (21S01): Column count doesn't match value count at row 1
+ MySQL  localhost:3306 ssl  assignment  SQL > select * from employees;
+Empty set (0.0005 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees (name,department,salary,join_date) values ("John Doe", "HR", 50000, '2024-01-15');
+Query OK, 1 row affected (0.0051 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees (name,department,salary,join_date) values ("Jane Smith", "IT", 60000, '2024-03-22');
+Query OK, 1 row affected (0.0045 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees (name,department,salary,join_date) values ("Alice Johnson", "Finance", 55000, '2024-07-30') ;
+Query OK, 1 row affected (0.0049 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > select * from employees;
++----+---------------+------------+----------+------------+
+| id | name          | department | salary   | join_date  |
++----+---------------+------------+----------+------------+
+|  1 | John Doe      | HR         | 50000.00 | 2024-01-15 |
+|  2 | Jane Smith    | IT         | 60000.00 | 2024-03-22 |
+|  3 | Alice Johnson | Finance    | 55000.00 | 2024-07-30 |
++----+---------------+------------+----------+------------+
+3 rows in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees (name,department,salary,join_date) values ("Bob Brown", "IT", 62000, '2025-02-10') ;
+Query OK, 1 row affected (0.0085 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > insert into employees (name,department,salary,join_date) values ("Charlie Davis", "HR", 48000, '2025-05-05') ;
+Query OK, 1 row affected (0.0036 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > select * from employees;
++----+---------------+------------+----------+------------+
+| id | name          | department | salary   | join_date  |
++----+---------------+------------+----------+------------+
+|  1 | John Doe      | HR         | 50000.00 | 2024-01-15 |
+|  2 | Jane Smith    | IT         | 60000.00 | 2024-03-22 |
+|  3 | Alice Johnson | Finance    | 55000.00 | 2024-07-30 |
+|  4 | Bob Brown     | IT         | 62000.00 | 2025-02-10 |
+|  5 | Charlie Davis | HR         | 48000.00 | 2025-05-05 |
++----+---------------+------------+----------+------------+
+5 rows in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > select * from employees; where department='IT';
++----+---------------+------------+----------+------------+
+| id | name          | department | salary   | join_date  |
++----+---------------+------------+----------+------------+
+|  1 | John Doe      | HR         | 50000.00 | 2024-01-15 |
+|  2 | Jane Smith    | IT         | 60000.00 | 2024-03-22 |
+|  3 | Alice Johnson | Finance    | 55000.00 | 2024-07-30 |
+|  4 | Bob Brown     | IT         | 62000.00 | 2025-02-10 |
+|  5 | Charlie Davis | HR         | 48000.00 | 2025-05-05 |
++----+---------------+------------+----------+------------+
+5 rows in set (0.0005 sec)
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where department='IT'' at line 1
+ MySQL  localhost:3306 ssl  assignment  SQL > select * from employees where department='IT';
++----+------------+------------+----------+------------+
+| id | name       | department | salary   | join_date  |
++----+------------+------------+----------+------------+
+|  2 | Jane Smith | IT         | 60000.00 | 2024-03-22 |
+|  4 | Bob Brown  | IT         | 62000.00 | 2025-02-10 |
++----+------------+------------+----------+------------+
+2 rows in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  assignment  SQL > alter table employees add column email text after name;
+Query OK, 0 rows affected (0.0151 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  assignment  SQL >
+>>>>>>> b64ceec27b9e58058122304088b0d135e0fbea4b
